@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+    .imgClass{
+    #border-top:solid red 30px;
+    }
+    </style>
+    <title>Index Page</title>
+
+</head>
+<body>
+<img id="test" style="border:solid red 10px;" 
+src="http://www.fred.net/dhark/images/sunface.gif" 
+class="imgClass" alt="Crazy computerman" 
+width="107" height="98" />
+</body>
+<script type="text/javascript">
+//To get the Html page title text
+document.write("<br> <b>
+Page Title</b>: "+document.title+"<br>");
+
+//To get the image tag alt text value
+document.write("<b>Image Title</b>: 
+"+document.getElementById("test").alt+"<br>");
+//To get the image tag width value
+document.write("<b>Image Width</b> : 
+"+document.getElementById("test").width+"<br>");
+//To get the image tag height value
+document.write("<b>Image Height</b> :"+ 
+document.getElementById("test").height+"<br>");
+//To get the image tag width value
+document.write("<b>Css Style</b>: 
+"+document.getElementById("test").style.cssText+"<br>");
+//To get the image tag Css class name
+document.write("<b>Css Class Name</b>: 
+"+document.getElementById("test").className+"<br>");
+</script>
+</html>
