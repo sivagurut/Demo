@@ -1,13 +1,18 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">		   </script>
+        
 		<script>
+        
 			$(document).ready(function(){
-					$.get("https://services.odata.org/TripPinRESTierService/People", function(data, status){
+					$.get("https://services.odata.org/TripPinRESTierService/People",
+                    function(data, status){
 						if(data && data.value){
 							$.each(data.value, function(index, value){
-								$("#result").append(index++ + " " + value.UserName + '<br>');
+								$("#result").append(index+1 + " " + value.UserName + '<br>');
+                                $("#loaderimage").hide();
 							});
 						}
 				});
@@ -22,9 +27,17 @@
 		    padding: 10px;
 		    margin: 10px
 		}
+        	#loaderimage
+		{
+		    width: 200px;
+		}
 		</style>
 		</head>
 		<body>
-			<div id="result" class="resultbox"></div>
+			
+            <div id="result" class="resultbox">
+            <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_900/https://flevix.com/wp-content/uploads/2019/07/Ajax-Preloader.gif" id="loaderimage"/>
+            </div>
+            
 		</body>
 	</html>
