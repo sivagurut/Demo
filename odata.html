@@ -7,14 +7,24 @@
 					$.get("https://services.odata.org/TripPinRESTierService/People", function(data, status){
 						if(data && data.value){
 							$.each(data.value, function(index, value){
-										$("#result").append(index + "" + value.UserName + '<br>');
+								$("#result").append(index++ + " " + value.UserName + '<br>');
 							});
 						}
 				});
 			});
 		</script>
+		<style>
+		.resultbox
+		{
+		    background-color: lightgrey;
+		    width: 200px;
+		    border: 2px solid green;
+		    padding: 10px;
+		    margin: 10px
+		}
+		</style>
 		</head>
 		<body>
-			<div id="result"></div>
+			<div id="result" class="resultbox"></div>
 		</body>
 	</html>
