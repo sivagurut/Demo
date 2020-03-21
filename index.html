@@ -1,5 +1,20 @@
+<!DOCTYPE html>
 <html>
-<body>
-<h1>GC code base</h1>
-</body>
-</html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+					$.get("https://services.odata.org/TripPinRESTierService/People", function(data, status){
+						if(data && data.value){
+							$.each(data.value, function(index, value){
+										$("#result").append(index + "" + value.UserName + '<br>');
+							});
+						}
+				});
+			});
+		</script>
+		</head>
+		<body>
+			<div id="result"></div>
+		</body>
+	</html>
