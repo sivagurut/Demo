@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">		   </script>
+ 
+<!-- Javascript -->
+<script type="text/javascript">
+$.ajax({
+type: 'GET',
+dataType: "json",
+processData: false,
+crossDomain: true,
+jsonp: false,
+url: "https://api.github.com/users/jeresig",
+success: function (responseData, textStatus, jqXHR) 
+{
+    console.debug(responseData);
+     $('body').append(responseData.login + '<br />' + responseData.id + '<br />' + responseData.blog + '<br />' + responseData.name + '<br />' + '<br />');
+},
+error: function (responseData, textStatus, errorThrown) {
+    alert('POST failed.');
+}
+});
+</script>
+</head>
+<body>
+</body>
+</html>
+
