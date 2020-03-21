@@ -1,38 +1,29 @@
 <html>
 <head>
-    <style>
-    .imgClass{
-    #border-top:solid red 30px;
-    }
-    </style>
-    <title>Index Page</title>
+  <script 
+src="http://code.jquery.com/jquery-latest.js"></script>
+  
+  <script>
 
+function imgChange(){
+var d = new Date();
+var srcVal=$("#myImage").attr("src");
+var len  = srcVal.search("icon_doc.gif");
+if(len>0)
+$("#myImage").attr("src",
+ "http://www.w3schools.com/images/icon_cut.gif");
+else
+$("#myImage").attr("src", 
+"http://www.w3schools.com/images/icon_doc.gif");
+}
+//Every 5 seconds
+setInterval( "imgChange()", 5000);
+  </script>
+  <style>img{ height: 100px; float: left; }</style>
 </head>
 <body>
-<img id="test" style="border:solid red 10px;" 
-src="http://www.fred.net/dhark/images/sunface.gif" 
-class="imgClass" alt="Crazy computerman" 
-width="107" height="98" />
-</body>
-<script type="text/javascript">
-//To get the Html page title text
-document.write("<br> <b>
-Page Title</b>: "+document.title+"<br>");
+<h2>Java script Time Interval (5 Seconds) to change the image source</h2>
+<img src="http://www.w3schools.com/images/icon_doc.gif" id="myImage"/>
 
-//To get the image tag alt text value
-document.write("<b>Image Title</b>: 
-"+document.getElementById("test").alt+"<br>");
-//To get the image tag width value
-document.write("<b>Image Width</b> : 
-"+document.getElementById("test").width+"<br>");
-//To get the image tag height value
-document.write("<b>Image Height</b> :"+ 
-document.getElementById("test").height+"<br>");
-//To get the image tag width value
-document.write("<b>Css Style</b>: 
-"+document.getElementById("test").style.cssText+"<br>");
-//To get the image tag Css class name
-document.write("<b>Css Class Name</b>: 
-"+document.getElementById("test").className+"<br>");
-</script>
+</body>
 </html>
