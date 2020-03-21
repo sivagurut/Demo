@@ -1,25 +1,24 @@
+
 <html>
 <head>
-  <script 
-src="http://code.jquery.com/jquery-latest.js"></script>
-  
-  <script>
-
-function imgChange(){
-var d = new Date();
-var srcVal=$("#myImage").attr("src");
-var len  = srcVal.search("icon_doc.gif");
-if(len>0)
-$("#myImage").attr("src",
- "http://www.w3schools.com/images/icon_cut.gif");
-else
-$("#myImage").attr("src", 
-"http://www.w3schools.com/images/icon_doc.gif");
-}
-//Every 5 seconds
-setInterval( "imgChange()", 5000);
-  </script>
-  <style>img{ height: 100px; float: left; }</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script>
+  function imgChange(){
+  var d = new Date();
+  var srcVal=$("#myImage").attr("src");
+  var len  = srcVal.search("icon_doc.gif");
+  if(len>0)
+  $("#myImage").attr("src",
+   "http://www.w3schools.com/images/icon_cut.gif");
+  else
+  $("#myImage").attr("src", 
+  "http://www.w3schools.com/images/icon_doc.gif");
+  }
+  //Every 5 seconds
+  setInterval( "imgChange()", 5000);
+ </script>
+ <style>img{ height: 100px; float: left; }</style>
 </head>
 <body>
 <h2>Java script Time Interval (5 Seconds) to change the image source</h2>
