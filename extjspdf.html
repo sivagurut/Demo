@@ -1,0 +1,37 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+	xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/ext-theme-access/ext-theme-access-all.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.min.js"></script>
+		<script type="text/javascript">
+Ext.onReady (function () {
+
+    var docURL ="https://enovision.github.io/data/sample.pdf";
+    var popupw = new Ext.Window ({
+        defaultButton: 'Name',
+ width: 650, height: 650,
+
+            items: [{
+        	frame: false,
+	        border: false,
+        	xtype : "container",
+		width:600,
+		height:610,
+	        autoEl : {
+                 tag : "iframe",
+	         frameborder: 0,	
+                 src: "https://view.officeapps.live.com/op/embed.aspx?src="+docURL
+	        }
+	   }]
+
+    });
+    popupw.setVisible (true);
+    popupw.focus ();
+});
+    </script>
+	</head>
+	<body>
+		<div id="extjs" style="width: 300; height: 300"></div>
+	</body>
