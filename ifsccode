@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">		   </script>
+        
+		<script>
+        
+			$(document).ready(function(){
+       		             
+           
+               var theText = $("#ifsccode");
+             	$("#clear").click(function (event) {
+                    var tablerows = document.getElementById("tablerow");
+  			   		tablerows.innerHTML ="";
+                    $('input:text[id=ifsccode]').val('');
+                });
+              	$("#search").click(function (event) {
+            
+                    keyReport(event);
+                });
+
+              
+
+      function keyReport(e) {
+        
+      
+       var dInput = $('input:text[id=ifsccode]').val();
+  
+       $("#loaderimage").show();
+       
+          var tablerows = document.getElementById("tablerow");
+  			   tablerows.innerHTML ="";
+        	$.get("https://ifsc.razorpay.com/"+dInput,
+                    function(data, status){
+                    console.log(data);
+						if(data){
+var obj = data;
+var rowContent;
+
+
+for(var key in obj){
+   rowContent = "<tr><td>" + key + "</td><td>" + obj[key] + "</td></tr>";
+
+   tablerows.innerHTML += rowContent;
+}
+                 $("#loaderimage").hide();
+						
+						}
+				}).fail(function(x, e) {
+                console.log(x,e);
+                  $("#loaderimage").hide();
+                  var tablerows = document.getElementById("tablerow");
+    tablerows.innerHTML += x.status +' '+ x.statusText;
+});
+    
+    }
+				
+			});
+		</script>
+		<style>
+		.resultbox
+		{
+		    background-color: lightgrey;
+		    width: auto;
+		    border: 2px solid green;
+		}
+        	#loaderimage
+		{
+		    width: 200px;
+		}
+		</style>
+		</head>
+		<body>
+			 <label for="ifsccode">IFSC Code:</label><br>
+             <input type="text" id="ifsccode" minlength="8"/><br/><br/>
+             <input type="button" id="search" value="search"/>&nbsp;
+             <input type="button" id="clear" value="clear"/><br/>            
+            <div id="result" class="resultbox">
+            <br/>    
+            <table id="tablerow"></table>
+            <img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_900/https://flevix.com/wp-content/uploads/2019/07/Ajax-Preloader.gif" id="loaderimage" style="display:none;"/>
+            </div>
+            
+		</body>
+	</html>
